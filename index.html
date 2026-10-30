@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard หน่วยปฐมพยาบาล จังหวัดกาญจนบุรี (ข้อมูลร่วมแบบเรียลไทม์)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf6ff;--card:#fff;--tx:#12304a;--mu:#5b7690;--bd:#d3e6f6;--sh:0 6px 18px rgba(14,90,160,.13);--h1:#0ea5e9;--h2:#10b981;--in:#f4faff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1a2a;--card:#12283d;--tx:#e8f3ff;--mu:#9bb6cf;--bd:#23415c;--h1:#075985;--h2:#047857;--sh:0 6px 18px rgba(0,0,0,.4);--in:#0e2236}}
+:root[data-theme="dark"]{--bg:#0b1a2a;--card:#12283d;--tx:#e8f3ff;--mu:#9bb6cf;--bd:#23415c;--h1:#075985;--h2:#047857;--sh:0 6px 18px rgba(0,0,0,.4);--in:#0e2236}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Noto Sans Thai",Tahoma,sans-serif;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:14px}
+.hero{border-radius:22px;background:linear-gradient(120deg,var(--h1),var(--h2));color:#fff;padding:20px 20px 0;box-shadow:var(--sh);overflow:hidden}
+.hero h1{margin:0;font-size:clamp(19px,4vw,28px);font-weight:800}.hero p{margin:4px 0 0;font-size:14px;opacity:.94}
+.hero svg{display:block;width:100%;height:auto;margin-top:4px}
+.conn{display:inline-block;margin-top:8px;border-radius:99px;padding:3px 12px;font-size:12.5px;background:rgba(255,255,255,.25)}
+.grid{display:grid;gap:12px}.kp{grid-template-columns:repeat(auto-fit,minmax(145px,1fr));margin:14px 0}.g2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+.kpi{background:var(--card);border-radius:18px;padding:13px;box-shadow:var(--sh);border-top:6px solid var(--c)}
+.kpi b{display:block;font-size:32px;font-weight:800;color:var(--c);line-height:1.1}.kpi span{font-size:13px;color:var(--mu)}
+.card{background:var(--card);border-radius:20px;padding:16px;box-shadow:var(--sh);margin-top:12px}
+.card h2{margin:0 0 4px;font-size:18px;font-weight:800}.sub{margin:0 0 10px;font-size:13px;color:var(--mu)}
+.ring{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;flex:none}
+.ring i{font-style:normal;width:84px;height:84px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:800;font-size:24px}
+.row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.lg div{font-size:13.5px;margin:3px 0}.lg u{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px}
+.bar{display:grid;grid-template-columns:120px 1fr 30px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.bar div{height:15px;background:var(--bd);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--c),var(--c2));transition:width .4s}.bar b{text-align:right}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
+.tile{border-radius:14px;padding:8px;color:#fff;background:linear-gradient(135deg,var(--c),var(--c2));font-size:12.5px;font-weight:600}.tile b{display:block;font-size:24px;line-height:1.1}
+.btn{border:0;border-radius:12px;padding:9px 16px;font:700 14px "Noto Sans Thai",sans-serif;cursor:pointer;color:#fff;background:linear-gradient(120deg,#10b981,#059669)}
+.btn.b2{background:linear-gradient(120deg,#0ea5e9,#2563eb)}.btn.b3{background:linear-gradient(120deg,#94a3b8,#64748b)}.btn.b4{background:linear-gradient(120deg,#f87171,#dc2626)}.btn:disabled{opacity:.55}
+.flt{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.flt button{border:0;border-radius:99px;padding:6px 14px;font:600 13px "Noto Sans Thai",sans-serif;background:var(--bd);color:var(--tx);cursor:pointer}.flt button.on{background:linear-gradient(120deg,#0ea5e9,#10b981);color:#fff}
+label{display:block;font-size:13px;font-weight:600;margin:10px 0 3px}
+input[type=text],input[type=date],textarea{width:100%;border:2px solid var(--bd);border-radius:12px;padding:8px 10px;font:15px "Noto Sans Thai",sans-serif;background:var(--in);color:var(--tx)}
+textarea{min-height:70px}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.s{border-radius:14px;padding:8px;background:linear-gradient(135deg,var(--c),var(--c2));color:#fff}.s.off{opacity:.4;pointer-events:none}
+.s .n{font-size:12.5px;font-weight:600;min-height:34px;line-height:1.25}.s .v{display:flex;align-items:center;gap:8px}.s .v b{font-size:24px;min-width:26px;text-align:center}
+.s button{width:30px;height:30px;border:0;border-radius:50%;background:rgba(255,255,255,.32);color:#fff;font-size:18px;font-weight:800;cursor:pointer}
+.opt{display:flex;gap:8px;flex-wrap:wrap}.opt button{flex:1;min-width:120px;border:2px solid var(--bd);border-radius:12px;padding:9px;font:600 14px "Noto Sans Thai",sans-serif;background:var(--in);color:var(--tx);cursor:pointer}
+.opt button.on{color:#fff;border-color:transparent;background:linear-gradient(120deg,var(--c),var(--c2))}
+.np{display:flex;align-items:center;gap:8px;margin:10px 0;padding:8px 12px;border-radius:12px;background:var(--in);border:2px dashed var(--bd);cursor:pointer;font-size:14px;font-weight:600}.np.on{border-color:#10b981;background:rgba(16,185,129,.15)}
+.rc{border-radius:18px;background:var(--card);box-shadow:var(--sh);padding:14px;margin-top:10px;border-left:8px solid var(--c)}
+.rc h3{margin:2px 0;font-size:16px}.rc p{margin:2px 0;font-size:13.5px;color:var(--mu)}
+.st{display:inline-block;border-radius:99px;padding:2px 12px;font-size:12px;font-weight:700;color:#fff;background:var(--c)}
+.ch{display:inline-block;border-radius:99px;padding:2px 10px;margin:3px 4px 0 0;font-size:12.5px;background:var(--bd)}.ch b{color:#0ea5e9;margin-left:3px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:#0f172a;color:#fff;border-radius:14px;padding:10px 18px;font-size:14px;z-index:20;display:none;max-width:90%}
+.empty{padding:22px;text-align:center;border-radius:16px;background:rgba(14,165,233,.1);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <h1>🚑 Dashboard หน่วยปฐมพยาบาล จังหวัดกาญจนบุรี</h1>
+  <p>กรอกข้อมูลแล้วกดบันทึก — ทุกคนที่เปิดลิงก์เห็นการเปลี่ยนแปลงทันที</p>
+  <span class="conn" id="cn">⏳ กำลังเชื่อมต่อ...</span>
+  <svg viewBox="0 0 900 150" role="img" aria-label="ภาพประกอบรถพยาบาลและทีมแพทย์">
+    <defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#d9f99d"/></linearGradient><linearGradient id="bd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cfe0ee"/></linearGradient><linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b6e3ff"/><stop offset="1" stop-color="#3b82c4"/></linearGradient><radialGradient id="sun"><stop offset="0" stop-color="#fff7b0"/><stop offset="1" stop-color="#fbbf24"/></radialGradient></defs>
+    <rect width="900" height="150" rx="18" fill="url(#sk)"/><circle cx="800" cy="36" r="22" fill="url(#sun)"/>
+    <path d="M0 105 Q200 60 420 100 T900 92 V150 H0Z" fill="#34d399" opacity=".8"/><rect y="124" width="900" height="26" fill="#475569"/><line x1="0" y1="138" x2="900" y2="138" stroke="#fff" stroke-width="4" stroke-dasharray="24 20"/>
+    <g transform="translate(60,34) scale(.85)"><ellipse cx="140" cy="100" rx="140" ry="8" fill="#0f172a" opacity=".25"/><path d="M0 92V30q0-8 8-8h156v70z" fill="url(#bd)" stroke="#9db4c8"/><path d="M164 22h46q12 0 22 14l18 26q8 8 8 20v10h-94z" fill="url(#bd)" stroke="#9db4c8"/><path d="M174 32h34q8 0 13 9l11 18h-58z" fill="url(#hl)"/><rect y="60" width="240" height="11" fill="#ef4444"/><rect x="38" y="26" width="42" height="42" rx="8" fill="#fff"/><path d="M53 30h12v12h12v12H65v12H53V54H41V42h12z" fill="#ef4444" transform="translate(-2,-4)"/><rect x="92" y="2" width="48" height="13" rx="6" fill="#ef4444"/><g fill="#1e293b"><circle cx="56" cy="94" r="17"/><circle cx="202" cy="94" r="17"/></g><g fill="#cbd5e1"><circle cx="56" cy="94" r="8"/><circle cx="202" cy="94" r="8"/></g></g>
+    <g transform="translate(470,26)"><ellipse cx="60" cy="100" rx="66" ry="6" fill="#0f172a" opacity=".25"/><circle cx="30" cy="20" r="13" fill="#f5c9a0"/><path d="M17 16q13-17 26 0z" fill="#3b2a1a"/><path d="M12 48q18-13 36 0v46H12z" fill="#22c55e"/><rect x="14" y="94" width="11" height="12" rx="3" fill="#1e3a8a"/><rect x="33" y="94" width="11" height="12" rx="3" fill="#1e3a8a"/><g transform="translate(62,6)"><circle cx="28" cy="20" r="13" fill="#e8b78a"/><path d="M15 20q2-16 26-5l2 5z" fill="#111827"/><path d="M10 48q18-13 36 0v46H10z" fill="#f97316"/><rect x="46" y="58" width="24" height="20" rx="4" fill="#ef4444"/><path d="M55 62h6v4h4v5h-4v4h-6v-4h-4v-5h4z" fill="#fff"/><rect x="12" y="94" width="11" height="12" rx="3" fill="#334155"/><rect x="31" y="94" width="11" height="12" rx="3" fill="#334155"/></g></g>
+    <g transform="translate(680,52)" font-size="28"><text>💊</text><text x="48">🩹</text><text x="96">🌡️</text><text x="144">🧊</text></g>
+  </svg>
+</div>
+
+<div class="grid kp" id="kp"></div>
+<div class="grid g2">
+  <div class="card"><h2>📊 สถานะงาน</h2><div class="row"><div class="ring" id="rg"></div><div class="lg" id="lg"></div></div></div>
+  <div class="card"><h2>👥 ผู้ปฏิบัติงาน (รวมทุกงาน)</h2><div id="sb"></div></div>
+</div>
+<div class="grid g2">
+  <div class="card"><h2>🤒 อาการที่พบ</h2><div id="sy"></div></div>
+  <div class="card"><h2>💊 การปฐมพยาบาล</h2><div class="tiles" id="fa"></div></div>
+</div>
+
+<div class="card"><div class="row" style="justify-content:space-between"><h2>🗂️ รายการกิจกรรม/งาน</h2><button class="btn" id="add">➕ เพิ่มกิจกรรม</button></div>
+<div class="flt" id="fl"></div><div id="ls"></div></div>
+
+<div class="card" id="fm" style="display:none"></div>
+<div class="toast" id="ts"></div>
+</div>
+<script>
+var M=["ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค."];
+var ST=[["done","ดำเนินการแล้ว","#10b981","#34d399"],["doing","อยู่ระหว่างดำเนินการ","#0ea5e9","#38bdf8"],["todo","ยังไม่ดำเนินการ","#f59e0b","#fbbf24"]];
+var RL=[["doctor","🩺 แพทย์","#0ea5e9","#38bdf8"],["nurse","👩‍⚕️ พยาบาล","#10b981","#34d399"],["aide","🧑‍🤝‍🧑 ผู้ช่วยเหลือคนไข้","#ec4899","#f472b6"],["found","🤝 จนท.มูลนิธิ","#8b5cf6","#a78bfa"],["driver","🚑 พขร.","#f59e0b","#fbbf24"]];
+var SY=[["บาดแผล/แผลถลอก","🩹","#f97316","#fdba74"],["ปวดศีรษะ","🤕","#8b5cf6","#c4b5fd"],["วิงเวียนศีรษะ","😵‍💫","#ec4899","#f9a8d4"],["ไข้","🌡️","#ef4444","#fca5a5"],["ไอ/เจ็บคอ","😷","#0ea5e9","#7dd3fc"],["ตา (เจ็บตา/ตาแดง/ปวดตา)","👁️","#14b8a6","#5eead4"],["ปวดเมื่อยกล้ามเนื้อ","💪","#6366f1","#a5b4fc"],["ตะคริว","🦵","#f59e0b","#fcd34d"],["ปวดท้อง","🤢","#84cc16","#bef264"],["เลือดกำเดาไหล","🩸","#dc2626","#f87171"],["ปวดหู","👂","#06b6d4","#67e8f9"],["แผลฉีกขาดลึก","🩻","#be123c","#fb7185"],["บาดเจ็บรุนแรง","🚨","#b91c1c","#ef4444"],["เสียชีวิต","🕯️","#475569","#94a3b8"]];
+var FA=[["จำหน่ายยา","💊","#0ea5e9","#38bdf8"],["ทำแผล","🩹","#f97316","#fb923c"],["วัด V/S","🩺","#8b5cf6","#a78bfa"],["นั่งหรือนอนพัก","🛏️","#14b8a6","#2dd4bf"],["ประคบเย็น","🧊","#06b6d4","#22d3ee"],["ปฏิเสธการรักษา","🙅","#64748b","#94a3b8"],["ส่งต่อ","🚑","#ef4444","#f87171"]];
+var db=null,col=null,recs=[],flt="all",F=null,LK="fa-live-v1";
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function bd(i){if(!i)return "–";var p=i.split("-");return +p[2]+" "+M[+p[1]-1]+" "+(+p[0]+543)}
+function N(o,k){return o&&+o[k]>0?+o[k]:0}
+function toast(t){var e=document.getElementById("ts");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(function(){e.style.display="none"},3200)}
+function conn(t){document.getElementById("cn").textContent=t}
+function sumK(L,g,key){return recs.reduce(function(a,r){if(g=="sym"&&r.noP)return a;return a+N(r[g],key)},0)}
+function draw(){
+ var tot=recs.length,cnt={done:0,doing:0,todo:0};recs.forEach(function(r){if(cnt[r.status]!=null)cnt[r.status]++});
+ var staff=0;RL.forEach(function(x){staff+=sumK(0,"staff",x[0])});
+ var pat=0;SY.forEach(function(x){pat+=sumK(0,"sym",x[0])});var ref=sumK(0,"fa","ส่งต่อ");
+ var kp=[["#0ea5e9","📋",tot,"งาน/กิจกรรมทั้งหมด"],["#10b981","✅",cnt.done,"ดำเนินการแล้ว"],["#f59e0b","⏳",cnt.todo+cnt.doing,"ยังไม่เสร็จ/กำลังดำเนินการ"],["#8b5cf6","👩‍⚕️",staff,"ผู้ปฏิบัติงาน (คน)"],["#ec4899","🤒",pat,"ผู้รับบริการ/บาดเจ็บ (ราย)"],["#ef4444","🚑",ref,"ส่งต่อ (ราย)"]];
+ document.getElementById("kp").innerHTML=kp.map(function(k){return '<div class="kpi" style="--c:'+k[0]+'"><div style="font-size:24px">'+k[1]+'</div><b>'+k[2]+'</b><span>'+k[3]+'</span></div>'}).join("");
+ var a=0,cs=[];ST.forEach(function(s){var p=tot?cnt[s[0]]*100/tot:0;cs.push(s[2]+" "+a+"% "+(a+p)+"%");a+=p});
+ var rg=document.getElementById("rg");rg.style.background=tot?"conic-gradient("+cs.join(",")+")":"var(--bd)";rg.innerHTML="<i>"+(tot?Math.round(cnt.done*100/tot)+"%":"–")+"</i>";
+ document.getElementById("lg").innerHTML=ST.map(function(s){return '<div><u style="background:'+s[2]+'"></u>'+s[1]+' '+cnt[s[0]]+' งาน</div>'}).join("");
+ var mx=Math.max(1,staff?Math.max.apply(null,RL.map(function(x){return sumK(0,"staff",x[0])})):1);
+ document.getElementById("sb").innerHTML=RL.map(function(x){var v=sumK(0,"staff",x[0]);return '<div class="bar" style="--c:'+x[2]+';--c2:'+x[3]+'"><span>'+x[1]+'</span><div><i style="width:'+v*100/mx+'%"></i></div><b>'+v+'</b></div>'}).join("");
+ var sl=SY.map(function(x){return [x,sumK(0,"sym",x[0])]}).filter(function(x){return x[1]>0}).sort(function(a,b){return b[1]-a[1]}),m2=sl.length?sl[0][1]:1;
+ document.getElementById("sy").innerHTML=sl.length?sl.map(function(r){return '<div class="bar" style="--c:'+r[0][2]+';--c2:'+r[0][3]+'"><span>'+r[0][1]+' '+esc(r[0][0].split(" ")[0])+'</span><div><i style="width:'+r[1]*100/m2+'%"></i></div><b>'+r[1]+'</b></div>'}).join(""):'<div class="empty">✅ ยังไม่มีผู้รับบริการ/ผู้บาดเจ็บที่บันทึก</div>';
+ document.getElementById("fa").innerHTML=FA.map(function(x){return '<div class="tile" style="--c:'+x[2]+';--c2:'+x[3]+'">'+x[1]+' '+x[0]+'<b>'+sumK(0,"fa",x[0])+'</b></div>'}).join("");
+ document.getElementById("fl").innerHTML=[["all","ทั้งหมด"]].concat(ST.map(function(s){return [s[0],s[1]]})).map(function(f){return '<button data-f="'+f[0]+'" class="'+(flt==f[0]?"on":"")+'">'+f[1]+'</button>'}).join("");
+ var L=recs.filter(function(r){return flt=="all"||r.status==flt}).sort(function(a,b){return (b.date||"").localeCompare(a.date||"")});
+ document.getElementById("ls").innerHTML=L.length?L.map(card).join(""):'<div class="empty">ยังไม่มีรายการ — กด “➕ เพิ่มกิจกรรม” เพื่อเริ่มบันทึก</div>'}
+function chips(o,L,skip){return L.filter(function(x){return N(o,x[0])>0}).map(function(x){return '<span class="ch">'+x[1]+' '+esc(x[0].split(" ")[0])+'<b>'+N(o,x[0])+'</b></span>'}).join("")}
+function card(r){var s=ST.filter(function(x){return x[0]==r.status})[0]||ST[2],sf=RL.filter(function(x){return N(r.staff,x[0])>0}).map(function(x){return '<span class="ch">'+x[1]+'<b>'+N(r.staff,x[0])+'</b></span>'}).join("");
+ return '<div class="rc" style="--c:'+s[2]+'"><span class="st">'+s[1]+'</span> <small>'+bd(r.date)+(r.time?" · ⏰ "+esc(r.time):"")+'</small><h3>'+esc(r.activity)+'</h3>'+(r.place?'<p>📍 '+esc(r.place)+'</p>':'')+(sf?'<p>'+sf+'</p>':'')+
+ '<p>'+(r.noP?'<span class="ch">✅ ไม่มีผู้รับบริการ/บาดเจ็บ</span>':chips(r.sym,SY)+chips(r.fa,FA))+'</p>'+(r.problem?'<p>⚠️ ปัญหา/อุปสรรค: '+esc(r.problem)+'</p>':'')+(r.note?'<p>📝 '+esc(r.note)+'</p>':'')+
+ '<div style="margin-top:8px;display:flex;gap:8px"><button class="btn b2" data-e="'+esc(r.id)+'">✏️ แก้ไข</button><button class="btn b4" data-x="'+esc(r.id)+'">🗑️ ลบ</button></div></div>'}
+function stp(g,x){var v=N(F[g],x[0]),off=(g!="staff"&&F.noP);return '<div class="s'+(off?" off":"")+'" style="--c:'+x[2]+';--c2:'+x[3]+'"><div class="n">'+(g=="staff"?"":x[1]+" ")+esc(g=="staff"?x[1]:x[0])+'</div><div class="v"><button data-g="'+g+'" data-k="'+esc(x[0])+'" data-d="-1" aria-label="ลด">−</button><b>'+v+'</b><button data-g="'+g+'" data-k="'+esc(x[0])+'" data-d="1" aria-label="เพิ่ม">+</button></div></div>'}
+function form(){var e=document.getElementById("fm"),h='<h2>'+(F.id?"✏️ แก้ไขกิจกรรม":"➕ บันทึกกิจกรรมใหม่")+'</h2><p class="sub">กรอกข้อมูลแล้วกด “💾 บันทึก” ทุกคนจะเห็นทันที</p>';
+ h+='<div class="fg"><div><label>1. วันที่</label><input type="date" data-t="date" value="'+esc(F.date)+'"></div><div><label>3. เวลา</label><input type="text" data-t="time" placeholder="เช่น เริ่ม 05.00 น." value="'+esc(F.time)+'"></div></div>';
+ h+='<label>2. กิจกรรม/งาน</label><input type="text" data-t="activity" value="'+esc(F.activity)+'"><label>4. สถานที่</label><input type="text" data-t="place" value="'+esc(F.place)+'">';
+ h+='<label>5. ผู้ปฏิบัติงาน (จำนวนคน)</label><div class="fg">'+RL.map(function(x){return stp("staff",x)}).join("")+'</div>';
+ h+='<label>6. สถานะการดำเนินการ</label><div class="opt">'+ST.map(function(s){return '<button data-s="'+s[0]+'" class="'+(F.status==s[0]?"on":"")+'" style="--c:'+s[2]+';--c2:'+s[3]+'">'+s[1]+'</button>'}).join("")+'</div>';
+ h+='<div class="np'+(F.noP?" on":"")+'" data-np="1">'+(F.noP?"☑️":"⬜")+' ไม่มีผู้รับบริการ/บาดเจ็บ (ใช้กับทั้งอาการและการปฐมพยาบาล)</div>';
+ h+='<label>7. อาการที่พบ (จำนวนราย)</label><div class="fg">'+SY.map(function(x){return stp("sym",x)}).join("")+'</div>';
+ h+='<label>8. การปฐมพยาบาล (จำนวนราย)</label><div class="fg">'+FA.map(function(x){return stp("fa",x)}).join("")+'</div>';
+ h+='<label>9. ปัญหา/อุปสรรคที่พบ</label><textarea data-t="problem">'+esc(F.problem)+'</textarea><label>10. หมายเหตุ/รายละเอียดเพิ่มเติม</label><textarea data-t="note">'+esc(F.note)+'</textarea>';
+ h+='<div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="sv">💾 บันทึก</button><button class="btn b3" id="cc">ยกเลิก</button></div>';
+ e.innerHTML=h;e.style.display="block"}
+function openF(r){F=r?JSON.parse(JSON.stringify(r)):{id:null,date:new Date().toISOString().slice(0,10),activity:"",time:"",place:"",staff:{},status:"todo",noP:false,sym:{},fa:{},problem:"",note:""};["staff","sym","fa"].forEach(function(g){F[g]=F[g]||{}});form();document.getElementById("fm").scrollIntoView({behavior:"smooth"})}
+function loc(){try{return JSON.parse(localStorage.getItem(LK)||"[]")}catch(e){return []}}
+function locSave(){try{localStorage.setItem(LK,JSON.stringify(recs))}catch(e){}}
+async function save(){if(!F.date||!F.activity.trim()){toast("⚠️ กรุณากรอกวันที่และชื่อกิจกรรม/งาน");return}
+ var o={date:F.date,activity:F.activity.trim(),time:F.time,place:F.place,staff:F.staff,status:F.status,noP:!!F.noP,sym:F.noP?{}:F.sym,fa:F.noP?{}:F.fa,problem:F.problem,note:F.note,updated:Date.now()};
+ var id=F.id||("r"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)),b=document.getElementById("sv");b.disabled=true;
+ try{if(col){await col.doc(id).set(o)}else{o.id=id;recs=recs.filter(function(r){return r.id!=id}).concat([o]);locSave();draw()}
+  toast(col?"✅ บันทึกแล้ว — ทุกคนเห็นการเปลี่ยนแปลงทันที":"✅ บันทึกในเครื่องนี้แล้ว");document.getElementById("fm").style.display="none";F=null}
+ catch(e){toast("❌ บันทึกไม่สำเร็จ — บัญชีนี้อาจไม่มีสิทธิ์แก้ไขข้อมูล");b.disabled=false}}
+document.addEventListener("click",function(e){var t=e.target.closest("button,[data-np]");if(!t)return;var d=t.dataset;
+ if(t.id=="add")openF();else if(t.id=="cc"){F=null;document.getElementById("fm").style.display="none"}else if(t.id=="sv")save();
+ else if(d.f){flt=d.f;draw()}
+ else if(d.e){var r=recs.filter(function(x){return x.id==d.e})[0];if(r)openF(r)}
+ else if(d.x){if(confirm("ลบรายการนี้? ทุกคนจะไม่เห็นรายการนี้อีก")){if(col)col.doc(d.x).delete().then(function(){toast("🗑️ ลบแล้ว")}).catch(function(){toast("❌ ไม่มีสิทธิ์ลบ")});else{recs=recs.filter(function(x){return x.id!=d.x});locSave();draw()}}}
+ else if(d.g&&F){var o=F[d.g],v=Math.max(0,N(o,d.k)+ +d.d);if(v)o[d.k]=v;else delete o[d.k];form()}
+ else if(d.s&&F){F.status=d.s;form()}
+ else if(d.np!=null&&F){F.noP=!F.noP;if(F.noP){F.sym={};F.fa={}}form()}});
+document.addEventListener("input",function(e){var t=e.target;if(t.dataset&&t.dataset.t&&F)F[t.dataset.t]=t.value});
+function startLocal(){recs=loc();conn("💻 โหมดเครื่องนี้ (ไม่ได้แชร์ให้ผู้อื่น)");draw()}
+draw();
+if(window.claude&&claude.use){claude.use("db").then(function(d){if(!d){startLocal();return}db=d;col=d.collection("records");
+ col.onSnapshot(function(s){recs=s.docs.map(function(x){var o=x.data()||{};o.id=x.id;return o});conn("🟢 ข้อมูลร่วม — อัปเดตแบบเรียลไทม์ ("+recs.length+" รายการ)");draw()},function(){col=null;startLocal()})}).catch(startLocal)}else startLocal();
+</script>
+</body>
+</html>
